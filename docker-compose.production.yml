@@ -20,14 +20,14 @@ services:
   frontend:
     image: we5h/kittygram_frontend
     env_file: .env
-    command: cp -r /app/build/. /frontend_static/
+    command: cp -r /app/build/. /static/
     volumes:
-      - static_volume:/frontend_static
+      - static_volume:/static
   gateway:
     image: we5h/kittygram_gateway
     env_file: .env
     volumes:
-      - static_volume:/staticfiles/
+      - static_volume:/static/
       - media_volume:/media
     ports:
       - 9000:80
